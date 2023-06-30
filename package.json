@@ -1,0 +1,20 @@
+{
+  "name": "chatGPT-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot powered by chatGPT",
+  "main": "index.js",
+  "author": "Anik K Dev",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "colors": "1.4.0",
+    "dotenv": "16.3.1",
+    "eslint": "8.43.0",
+    "openai": "3.3.0",
+    "readline-sync": "1.4.10"
+  }
+}

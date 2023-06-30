@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "no-unused-vars": "warn", // Warns about unused variables
+    "no-undef": "error", // Reports undefined variables as errors
+    "no-console": "warn" // Reports console.log() and similar statements as errors
+    // Add more rules as needed
+  }
+}
