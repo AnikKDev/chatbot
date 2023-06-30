@@ -13,16 +13,23 @@ async function main() {
     ],
   });
   console.log(chatCompletion.data); */
-
+  // store conversation history
+  const chatHistory = [];
   while (true) {
     const userInput = readlineSync.question(colors.bold.yellow("You: "));
     try {
+      const messages = chatHistory.map(([role, content]) => ({
+        role,
+        content,
+      }));
+      //   add latest message
+      messages.push({ role: "user", content: userInput });
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
           {
             role: "user",
-            content: userInput,
+            content: messages,
           },
         ],
       });
@@ -33,6 +40,9 @@ async function main() {
         return;
       }
       console.log(colors.green("Bot: " + completionText));
+      //   update history with user input and system response
+      chatHistory.push(["user", userInput]);
+      chatHistory.push(["assistant", completionText]);
     } catch (error) {
       console.error(colors.bold.red(error));
     }
